@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Cyneuro-web
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: vekar
+Implementation-Vendor-Id: Cyneuro-web
+Build-Jdk: 1.8.0_251
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Cyneuro-web
+Created-By: Maven Integration for Eclipse
+

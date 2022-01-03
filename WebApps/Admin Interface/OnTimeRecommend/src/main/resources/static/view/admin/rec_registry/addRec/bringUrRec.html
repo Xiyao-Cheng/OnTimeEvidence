@@ -1,0 +1,38 @@
+ <div ng-controller="byor-controller">
+	
+	 <div class="row">
+           <div class="col-12">
+               <a style="color: black;background: transparent;border: none;padding: 15px 0;"  role="button">
+                   <h4 class="section-heading">Add New Recommender System</h4>
+               </a>
+               <hr class="hr-line" />
+           </div>
+       </div>
+       
+	
+	 <ul class="nav nav-tabs rec-tabs">
+	    <li id="tab_1_head" class="rec-tab active"><a  href="javascript:void(0);" onclick="showRecTab('tab_1');" >Details</a></li>
+	    <li id="tab_3_head" class="rec-tab" ><a href="javascript:void(0);" onclick="showRecTab('tab_3');" >Input Parameter</a></li>
+	    <li id="tab_4_head" class="rec-tab" ><a href="javascript:void(0);" onclick="showRecTab('tab_4');" >Output Parameter</a></li>
+	   <!--  <li id="tab_5_head" class="rec-tab" ><a href="javascript:void(0);" onclick="showRecTab('tab_5');" >SDK Details</a></li>
+ -->
+	  </ul>
+	
+	  <div class="tab-content rec-tab-content">
+	    <div id="tab_1_content" class="tab-pane active">
+	    	<div ng-include="'view/admin/rec_registry/addRec/detail.html'"></div>
+	    	 
+	    </div>
+	    
+	    <div id="tab_3_content" class="tab-pane ">
+	    	<div ng-include="'view/admin/rec_registry/addRec/requestpayload.html'"></div>
+	    </div>
+	     <div id="tab_4_content" class="tab-pane ">
+	    	<div ng-include="'view/admin/rec_registry/addRec/responsepayload.html'"></div>
+	    </div>
+	     <!-- <div id="tab_5_content" class="tab-pane ">
+	    	<div ng-include="'view/admin/byor/addRec/sdkDetails.html'"></div>
+	    </div> -->
+	    
+	  </div>
+</div>

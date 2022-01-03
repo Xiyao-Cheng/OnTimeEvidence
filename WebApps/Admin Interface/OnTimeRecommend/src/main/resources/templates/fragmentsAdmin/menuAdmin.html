@@ -1,0 +1,44 @@
+<div th:fragment="menuAdmin">
+    <div class="col-md-3 recommender-left-menu" ng-controller="menuController">
+
+        <ul class="nav rec-nav flex-column">
+            <li class="nav-item " ng-class="menu['/']"><a class="nav-link " ng-click="loadMenu('/')" href="javascript:void(0);">
+            	<i class="fa fa-home"></i><br/>Home</a>
+            </li>
+            <!-- <li class="nav-item" ng-class="menu['recommender_system']"><a class="nav-link " ng-click="loadMenu('recommender_system')" href="javascript:void(0);">
+            <i class="fa fa-thumbs-up"></i><br/>
+            Available Recommender System</a></li> -->
+				
+			<!-- <li class="nav-item" ng-class="menu['bring_ur_rec']"><a class="nav-link " ng-click="loadMenu('bring_ur_rec')" href="javascript:void(0);">
+              <i class="fa fa-plus-circle"></i><br/>
+            	Add New Recommender</a></li>	 -->
+            	
+            <li class="nav-item" ng-class="menu['science_gateway']"><a class="nav-link " ng-click="loadMenu('science_gateway')" href="javascript:void(0);">
+              <i class="fa fa-plus-circle"></i><br/>
+            	Register Client</a></li>
+
+            <li class="nav-item" ng-class="menu['bring_ur_rec_list']"><a class="nav-link " ng-click="loadMenu('bring_ur_rec_list')" href="javascript:void(0);">
+              <i class="fa fa-plus-circle"></i><br/>
+            	Recommender Workflow Constructor</a></li>
+            	
+             <li class="nav-item" ng-class="menu['rec_orch']"><a class="nav-link " ng-click="loadMenu('rec_orch')" href="javascript:void(0);">
+              <i class="fa fa-link"></i><br/>
+            	Recommender Orchestrator</a></li>
+            	
+            <!--  <li class="nav-item" ng-class="menu['chain_rec']"><a class="nav-link " ng-click="loadMenu('chain_rec')" href="javascript:void(0);">
+              <i class="fa fa-link"></i><br/>
+            	Chain Recommenders</a></li> -->
+            	
+           <!--  <li class="nav-item" ng-class="menu['update_knowbase']"><a class="nav-link " ng-click="loadMenu('update_knowbase')" href="javascript:void(0);">
+              <i class="fa fa-plus-circle"></i><br/>
+            	Update KnowledgeBase</a></li>
+            	
+            <li class="nav-item" ng-class="menu['update_algo']"><a class="nav-link " ng-click="loadMenu('update_algo')" href="javascript:void(0);">
+              <i class="fa fa-plus-circle"></i><br/>
+            	Update Algorithm Details</a></li> -->
+
+        </ul>
+
+    </div>
+
+</div>

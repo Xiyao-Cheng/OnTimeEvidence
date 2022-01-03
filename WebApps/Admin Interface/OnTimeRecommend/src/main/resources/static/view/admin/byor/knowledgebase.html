@@ -1,0 +1,59 @@
+
+<div ng-controller="knowledgebase-controller">
+	<div class="row">
+	    <div class="col-12">
+	        <a style="color: black;background: transparent;border: none;padding: 15px 0;"  role="button">
+	            <h4 class="section-heading">Knowledge Base Details</h4>
+	        </a>
+	        <hr class="hr-line" />
+	    </div>
+	</div>
+	<div class="alert alert-primary" role="alert" >
+		Add Knowledge Base Details for <b>{{rec.appName}}</b>.<br/>
+		
+	</div>  
+	  
+	    
+	       
+	 <div class="form-group">
+	     <label for="knowbase_name">KnowledgeBase Name</label>
+	     <input type="text" ng-model="rec.knowbase.name" class="form-control" id="knowbase_name">
+	 </div>
+	 <div class="form-group">
+	     <label for="knowbase_desc">KnowledgeBase Description</label>
+	     <textarea ng-model="rec.knowbase.desc" class="form-control" id="knowbase_desc"></textarea>
+	 </div>
+	  <div class="form-group">
+	     <label for="knowbase_domainName">KnowledgeBase Domain Name(s) <br/>
+	     (Add comma separated domain name as shown below if multiple domains are included)<br/>
+	     <i>Domain1,Domain2</i></label>
+	     <input type="text" ng-model="rec.knowbase.domainName" placeholder="Domain1,Domain2" class="form-control" id="knowbase_domainName">
+	 </div>
+	 <div class="form-group">
+	     <label for="knowbase_source">KnowledgeBase Source Detail</label>
+	     <input type="text" ng-model="rec.knowbase.source" class="form-control" id="knowbase_source">
+	 </div>
+	 <div class="form-group">
+	     <label for="knowbase_sourceURL">KnowledgeBase Source URL <br/>
+	     (Make sure URL is accessible publicly to download Knowledge Base. <br/> Use tar.gz format for knowledge base.)</label>
+	     <input type="text" ng-model="rec.knowbase.sourceURL" class="form-control" id="knowbase_sourceURL">
+	 </div>
+	
+	 <div class="form-group">
+	     <fieldset>
+	         <legend>KnowledgeBase Timeline</legend>
+	         <div class="form-group">
+	             <label for="knowbase_timelinestdt">Start Date</label>
+	             <input type="text" ng-model="rec.knowbase.timelinestdt" class="form-control" id="knowbase_timelinestdt" placeholder="MM-YYYY">
+	         </div>
+	         <div class="form-group">
+	             <label for="knowbase_timelinestdt">End Date</label>
+	             <input type="text" ng-model="rec.knowbase.timelineeddt" class="form-control" id="knowbase_timelineeddt" placeholder="MM-YYYY">
+	         </div>
+	     </fieldset>
+	 </div>
+	 
+	  <div class="form-group">
+	  	<button class="btn btn-primary "  id="objectName" ng-click="addKnowledgeBaseDetails();">Save KnowledgeBase Details</button>
+	  </div>
+</div>

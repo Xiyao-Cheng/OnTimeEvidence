@@ -1,0 +1,76 @@
+
+ <h4>Response Details</h4>
+ 
+  
+  <div class="form-group">
+    <label for="domainName">Output Template Name</label>
+    <input type="text" ng-model="rec.outputTemplate"  class="form-control"  id="objectName">
+  </div>
+  
+  <div class="form-group">
+    <label for="domainName">API URL</label>
+    <input type="text" ng-model="rec.apiUrl"  class="form-control"  id="objectName">
+  </div>
+  
+  <div class="form-group">
+    <button class="btn btn-primary " id="getJSON_req" ng-click="addRecommenderDetails();">Register Recommender</button>
+  </div>
+
+  <!-- <div class="form-group">
+    <label for="domainName">Output Parameters to be Display on Output
+    (Add comma separated display object name from output JSON as shown below if multiple Output Parameters are included)<br/>
+	     <i>parameter1,parameter2</i></label>
+    <input type="text" ng-model="rec.objectNameToDisplay"  class="form-control"  id="objectName">
+  </div> -->
+  
+   
+   <!--  <div class="form-group">
+  	<button class="btn btn-primary "  id="objectName" ng-click="addRecommenderDetails();">Register Recommender</button>
+  </div>
+   -->
+  
+
+  <!-- <div class="form-group">
+    <label for="desc">Recommender Description:</label>
+    <textarea ng-model="rec.desc"  class="form-control" id="desc" ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="domainName">Domain Name:</label>
+    <input type="domainName" ng-model="rec.domainName"  class="form-control" id="domainName">
+  </div> -->
+  
+  <script type="text/javascript">
+    jQuery(function($) {
+        var list = ['req' ]; //, 'data-collection', 'data-process', 'data-training'];
+        
+        var fbInstances = {};
+
+        var init = function(i) {
+            if (i < list.length) {
+                var options = JSON.parse(JSON.stringify([])); // deep copy
+                $("#build-wrap-"+list[i]).formBuilder(options).promise.then(function(res) {
+					
+                    fbInstances[list[i]] = res;
+                    i++;
+                    init(i);
+                });
+            } else {
+                return;
+            }
+        };
+
+        init(0); // init by recursive 
+
+        document.getElementById('getJSON_req').addEventListener('click', function() {
+
+        	for(key in list){
+        		console.log(key);
+        		console.log(fbInstances[list[key]].actions.getData('json'));
+        		//input request paramter 
+        		document.getElementById('json-requestPayload-'+list[key]).value = fbInstances[list[key]].actions.getData('json');
+    	    	
+        	}
+
+        });
+    });
+</script>

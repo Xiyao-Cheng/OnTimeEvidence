@@ -1,0 +1,63 @@
+<div class="row " ng-controller='manage-process'>
+    <div class=" col-md-12 title-header">
+        <h4 class="section-heading">Manage Process for {{rec.appName}}</h4>
+        <hr class="hr-line">
+    </div>
+ <div class="col-md-12 mb-12 mb-md-0  ">
+
+		<div class="col-md-12" style="padding: 0px;">
+        	<a href="#!/add_new_proc/{{recId}}" class="btn btn-primary "><b>Add New Process</b></a>
+    	</div>
+    	<br/>
+        <table style="width:100%;font-size: 12px;" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="width:5%">#</th>
+                    <th style="width:15%">Process Name</th>
+                    <th style="width:65%">Process Details</th>
+                    <th style="width:15%">Manage Process</th>
+                    
+                </tr>
+            </thead>
+            <tbody ng-if="recProcess.length > 0">
+                <tr  ng-repeat="process in recProcess">
+                    <td >{{($index+1)}}</td>
+                    <td> {{process.processName}} </td>
+                    <td style="text-align: justify;"> {{process.processDetails}} </td>
+                    <td>
+                    	<span ng-if="process.isDefault == 'Y'" style="font-weight: bold;">-</span> 
+                    	<a href="#!/edit_proc/{{process.recProcessId}}" class="icon-link edit-link"><i class="fa fa-pencil"  ></i>&nbsp;Edit</a>
+                    	<a href="javascript:void(0);" class="icon-link delete-link" ng-click="deleteProcess(process);" ><i class="fa fa-trash"  ></i>&nbsp;Delete</a>
+                    	 	
+                    </td>
+                  
+					            
+                   
+                </tr>
+            </tbody>
+            
+            <tbody ng-if="recProcess.length == 0">
+            	<tr><td colspan="5" style="text-align: center;">Sorry, We could not find any processes.</td></tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+
+<style>
+.table thead tr th{
+	text-align: center;
+} 
+.table tbody td {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+.table thead th {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+   /*  .table tbody td {
+        border: 1px solid #ddd;
+    } */
+</style>

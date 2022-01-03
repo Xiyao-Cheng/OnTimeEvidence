@@ -1,0 +1,29 @@
+
+<div ng-controller="deploy-rec-controller">
+	<div class="row">
+	    <div class="col-12">
+	        <a style="color: black;background: transparent;border: none;padding: 15px 0;"  role="button">
+	            <h4 class="section-heading">Deploy Recommender Details</h4>
+	        </a>
+	        <hr class="hr-line" />
+	    </div>
+	</div>
+	<div class="alert alert-primary" role="alert" >
+		Add Deployment Recommender Details for <b>{{rec.appName}}</b>.<br/>
+		
+	</div>  
+	  
+	    
+	       
+	 <div class="form-group">
+	     <label for="knowbase_name">Recommender SDK Source URL
+	     (Make sure URL is accessible publicly to download Recommender SDK. <br/> Use tar.gz format for Recommender SDK.)
+	     </label>
+	     <input type="text" ng-model="rec.sdkSourceURL" class="form-control" id="knowbase_name">
+	 </div>
+	 
+	 
+	  <div class="form-group">
+	  	<button class="btn btn-primary "  id="objectName" ng-click="deployRecommender();">Deploy Recommender Details</button>
+	  </div>
+</div>

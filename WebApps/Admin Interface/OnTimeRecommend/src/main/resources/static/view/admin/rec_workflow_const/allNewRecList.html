@@ -1,0 +1,86 @@
+<div class="row " ng-controller='list-recommender'>
+    <div class=" col-md-12 title-header">
+        <h4 class="section-heading">Recommender Workflow Constructor</h4>
+        <hr class="hr-line">
+    </div>
+
+     <div class="col-md-12">
+        <a href="#!/bring_ur_rec" class="btn btn-primary newenv"><b>Add New Recommender</b></a>
+    </div> 
+
+    <div class="col-md-12 mb-12 mb-md-0 text-center ">
+   
+
+        <table style="width:100%;font-size: 12px;" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="width:3%">#</th>
+                    <th style="width:12%">Recommender Name</th>
+                    <th style="width:40%">Recommender Details</th>
+                    <th style="width:22%">Configure ML PipeLine</th>
+                    <th style="width:28%">Manage Recommender</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="rec in recList">
+                    <td >{{($index+1)}}</td>
+                    <td>
+                    	<!-- <a href="#!/renderInputPage/{{rec.recId}}" >{{rec.appName}}</a>  -->
+                    	{{rec.appName}}
+                    	<!-- 
+                    	<a ng-if="rec.isDeployed != 'Y'" ng-click="publishRec(rec.recId);" href="javascript:void(0);"  style="color:#fff;background:#007bff;padding: 2px 3px;" >Publish</a> 
+  				        <a ng-if="rec.isDeployed == 'Y'"  href="javascript:void(0);"  style="color:#fff;background:#28a745;padding: 2px 3px;" >Published</a> 
+                    	 -->
+                    </td>
+                    <td> {{rec.appDes}}</td>
+                    <td style="text-align: left;">
+                    	<ul style="padding: 0 0 0 10px;" ng-if="rec.recProcessDataLst.length > 0" >
+							<li ng-repeat="recProcess in rec.recProcessDataLst">
+								{{recProcess.processName}}
+	                    	 	<!-- <a href="#!/openProcessForm/{{recProcess.recProcessId}}"  >{{recProcess.processName}}</a>  -->
+	                    	 	<!-- <i ng-if="recProcess.status == 'Y'" class="fa fa-check" style="color:#28a745;" ></i>
+	                    	 	<i ng-if="recProcess.status == 'N'" class="fa fa-times" style="color:#dc3545;" ></i>
+	                    	 	<i ng-if="recProcess.status == 'W'" class="fa fa-spinner" style="color:#f5a940;" ></i> -->
+	                    	 	<br/>
+	                    	 </li>		
+                    	 </ul>	       
+                    	 <span ng-if="rec.recProcessDataLst.length == 0" >Services are not defined for this recommender system.</span>             		
+                    </td>
+                  
+					<td>   
+						<a href="javascript:void(0);" class="bg-primary"
+							style="color: #fff;padding: 3px;border-radius: 5px;margin: 5px 0px;float: left;" ng-click="updateRecDetails(rec.recId);" ><i class="fa fa-pencil" style="font-size: 12px;" ></i>&nbsp;Update Recommender Details</a>
+						             
+						<!-- <a href="javascript:void(0);" class="bg-success"
+							style="color: #fff;padding: 3px;border-radius: 5px;margin: 5px 0px;float: left;" ng-click="manageEnvDetails(rec.recId);" ><i class="fa fa-rocket" style="font-size: 12px;" ></i>&nbsp;Deploy Recommender</a>
+						 -->
+						<a href="javascript:void(0);" class="bg-warning"
+							style="color: #fff;padding: 3px;border-radius: 5px;margin: 5px 0px;float: left;" ng-click="manageProcess(rec.recId);" ><i class="fa fa-cogs" style="font-size: 12px;" ></i>&nbsp;Manage ML PipeLine</a>
+						
+					</td>                
+                   
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+
+<style>
+.table thead tr th{
+	text-align: center;
+} 
+.table tbody td {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+.table thead th {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+   /*  .table tbody td {
+        border: 1px solid #ddd;
+    } */
+</style>

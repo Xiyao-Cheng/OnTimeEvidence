@@ -1,0 +1,52 @@
+<div class="row " ng-controller='manageEnvDetails'>
+    <div class=" col-md-12 title-header">
+        <h4 class="section-heading">Manage Environment Details </h4>
+        <hr class="hr-line">
+    </div>
+ 	<div class="col-md-12 mb-12 mb-md-0  ">
+ 	
+ 		<div class="alert alert-primary" role="alert" >
+			You can bring you own hardware with recommender deployed on it or use our hardware to deploy your recommender.<br/>
+			To start, please provide details that are asked.
+		</div> 
+	
+		<div class="form-group">
+			<input type="radio" name="appName" ng-model="rec.bringYuHardware"  value="Y"/>&nbsp;Bring Your Own Hardware for Recommender <br/>
+			<input type="radio" name="appName" ng-model="rec.bringYuHardware"  value="N"/>&nbsp;Deploy Recommender on our Recommender<br/>
+		</div>
+
+		<div ng-if="rec.bringYuHardware == 'Y'">
+			<div class="form-group">
+				<label for="desc">Hostname</label>
+				<input type="text" ng-model="rec.hostName"  class="form-control" id="appDes" />
+			</div>
+			
+			<div class="form-group">
+				<label for="desc">port</label>
+				<input type="text" ng-model="rec.port"  class="form-control" id="appDes" />
+			</div>
+			
+			<div class="form-group">
+				<label for="desc">API URL to run Model</label>
+				<input type="text" ng-model="rec.apiUrl"  class="form-control" id="appDes" />
+			</div>
+		
+		</div>
+		
+		<div ng-if="rec.bringYuHardware == 'N'">
+			 
+	  		Add Details to Deploy <b>{{rec.appName}}</b>
+			 <div class="form-group">
+			     <label for="knowbase_name">Recommender SDK Source URL
+			     (Make sure URL is accessible publicly to download Recommender SDK. <br/> Use tar.gz format for Recommender SDK.)
+			     </label>
+			     <input type="text" ng-model="rec.sdkSourceURL" class="form-control" id="knowbase_name">
+			 </div>
+		</div>
+		
+		<div class="form-group">
+    		<button class="btn btn-primary " ng-click="deployRecommender();">Save Details</button>
+		</div>
+		
+	</div>
+</div>

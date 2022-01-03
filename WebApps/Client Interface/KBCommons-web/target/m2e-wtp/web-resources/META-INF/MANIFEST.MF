@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: KBCommons-web
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: vekar
+Implementation-Vendor-Id: KBCommons-web
+Build-Jdk: 1.8.0_251
+Implementation-URL: http://projects.spring.io/spring-boot/KBCommons-we
+ b/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

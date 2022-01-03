@@ -1,0 +1,55 @@
+<div class="row " ng-controller='add-client'>
+    <div class=" col-md-12 title-header">
+        <h4 class="section-heading">Register Client</h4>
+        <hr class="hr-line">
+    </div>
+ 	<div class="col-md-12 mb-12 mb-md-0  ">
+	
+	 <div class="form-group">
+	    <label for="name">Client Name</label>
+	    <input type="text" ng-model="client.clientName" class="form-control" id="appName">
+	  </div>
+	  <div class="form-group">
+	    <label for="desc">Client Detail</label>
+	    <textarea ng-model="client.clientDesc"  class="form-control" id="appDes" ></textarea>
+	  </div>
+	  
+	  <div class="form-group">
+	    <label for="domainName">Email Address</label>
+	    <input type="text" ng-model="client.emailAddress"  class="form-control" id="emailAddress">
+	  </div>
+	  
+	  <div class="form-group">
+	    <label for="domainName">User Name</label>
+	    <input type="text" ng-model="client.userName"  class="form-control" id="domainName">
+	  </div>
+	  
+	  <div class="form-group">
+	    <label for="domainName">Password</label>
+	    <input type="Password" ng-model="client.password"  class="form-control" id="domainName">
+	  </div>
+	  
+	<div class="setDataWrap">
+		<button id="getJSON_req" class="btn btn-primary"  ng-click="saveClient()" type="button">Add Client Details</button>
+	</div>
+        
+    </div>
+</div>
+
+<style>
+.table thead tr th{
+	text-align: center;
+} 
+.table tbody td {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+.table thead th {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+   /*  .table tbody td {
+        border: 1px solid #ddd;
+    } */
+</style>

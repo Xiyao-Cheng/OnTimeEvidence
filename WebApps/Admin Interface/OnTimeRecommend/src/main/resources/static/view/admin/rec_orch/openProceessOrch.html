@@ -1,0 +1,110 @@
+<div class="row " ng-controller='orchestrator-process'>
+    <div class=" col-md-12 title-header">
+        <h4 class="section-heading">Process Configuration for {{rec.appName}}</h4>
+        <hr class="hr-line">
+    </div>
+ <div class="col-md-12 mb-12 mb-md-0  ">
+
+		<div class="col-md-12" style="padding: 0px;">
+			<div class="form-group">
+			    <label for="name">Select Process</label>
+			    <select ng-model="recOrchPrc.processId" class="form-control" ng-change="getInputParams(recOrchPrc.processId);" >
+			    	<option ng-repeat="process in recProcess" value="{{process.recProcessId}}">{{process.processName}}</option>
+			    </select>
+			</div>
+			
+			<div class="form-group">
+			    <label for="name">Queuing Sequence</label>
+			    <input type="text" ng-model="recOrchPrc.seqQueueNumber" class="form-control" id="appName">
+			    
+			</div>
+			
+			<div ng-if="recOrchPrc.processId != ''" class="form-group" ng-repeat="recInput in htmlTags" >
+	     
+			     <data ng-bind-html="recInput.label"></data>
+			     
+			     <data ng-if="recInput.type == 'text'">
+			     
+			     	<input type="text" ng-model="recInputParam[recInput.name]" placeholder="{{recInput.placeholder}}" class="{{recInput.className}}" id="{{recInput.name}}">
+			     </data>
+			     
+			      <data ng-if="recInput.type == 'select'">
+			      	<select ng-model="recInputParam[recInput.name]" class="form-control" id="{{recInput.name}}">
+			      		<option ng-repeat="option in recInput.values" value="{{option.value}}" >{{option.label}}</option>
+			      	</select>
+			     </data>
+			     
+			 </div>
+			 
+			<div class="form-group">
+				<button  class="btn btn-primary"  ng-click="saveProcessOrch(recInputParam, rec.recId)" type="button">Save Process Config</button>
+			 </div>
+
+    	</div>
+		
+		
+        <table style="width:100%;font-size: 12px;" class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th style="width:5%">#</th>
+                    <th style="width:15%">Process Name</th>
+                    <th style="width:50%">Config Parameter</th>
+                    <th style="width:10%">Queuing Sequence</th>
+                    <th style="width:10%">Last Executed</th>
+                    <th style="width:10%">Action</th>
+                </tr>
+            </thead>
+            <tbody ng-if="processConfigs.length > 0">
+                <tr  ng-repeat="processConfig in processConfigs | orderBy : 'seqQueueNumber'">
+                    <td >{{($index+1)}}</td>
+                    <td style="text-align: center;"> {{processConfig.processName}} &nbsp;&nbsp;
+                    
+	                    	 	 <i ng-if="processConfig.status == 'Y'" class="fa fa-check" style="color:#28a745;" ></i>
+	                    	 	<i ng-if="processConfig.status == 'N'" class="fa fa-times" style="color:#dc3545;" ></i>
+	                    	 	<i ng-if="processConfig.status == 'W'" class="fa fa-spinner" style="color:#f5a940;" ></i> 
+	                </td>
+                    <td >{{processConfig.inputConfig}}</td>
+                    <td style="text-align: center;"> {{processConfig.seqQueueNumber}} </td>
+                    <td style="text-align: center;"> {{processConfig.lastExecuted}} </td>
+                    
+                    <td style="text-align: center;">
+                    	<a href="javascript:void(0);" class="icon-link delete-link" ng-click="deleteProcess(processConfig.id);" ><i class="fa fa-trash"  ></i>&nbsp;Delete</a>
+                    </td>
+                  
+					            
+                   
+                </tr>
+            </tbody>
+            
+            <tbody ng-if="processConfigs == 0">
+            	<tr><td colspan="5" style="text-align: center;">Sorry, We could not find configuration for any processes.</td></tr>
+            </tbody>
+        </table>
+        
+        
+        
+        <br>
+        <div class="form-group">
+				<button  class="btn btn-primary"  ng-click="startQueue(clientId, recId)" type="button">Start Queue Execution</button>
+			 </div>
+        
+    </div>
+</div>
+
+<style>
+.table thead tr th{
+	text-align: center;
+} 
+.table tbody td {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+.table thead th {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+   /*  .table tbody td {
+        border: 1px solid #ddd;
+    } */
+</style>

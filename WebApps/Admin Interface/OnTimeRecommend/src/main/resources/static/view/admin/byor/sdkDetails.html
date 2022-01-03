@@ -1,0 +1,174 @@
+<h4>SDK Details</h4>
+<div class="form-group">
+    <input type="checkbox" ng-model="req.prepareSDK" value="true" onclick="javascript:showStep('sdk_details')" />
+    <label for="desc">Do you need SDK to Configure ML PipeLine</label>
+
+</div>
+<div id="sdk_details" style="display: none;">
+    <div class="form-group">
+        <label for="desc">SDK Implementation Language</label>
+        <select ng-model="rec.langImpl" class="form-control" id="langImpl">
+            <option value="">--Select--</option>
+            <option value="python"> Python </option>
+            <option value="java"> Java </option>
+        </select>
+
+    </div>
+
+    <div class="form-group">
+        <label for="typeAlgo">Prerequisites or Required Dependency
+            <br/> (Add Dependency or Prerequisites comma separated with version as shown below)</label>
+        <ul>
+            <li>If you have selected <b>Python</b> as your Implementation Language, specify library, version number separated by ==.
+                <br/>E.g. <b><i>Numpy==1.16.5,tqdm==4.35.0</i></b></li>
+            <li>
+                If you have selected <b>JAVA</b> as your Implementation Language, specify maven groupId,artifactId,version separated by ==. <a href="https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple/1.1" target="_blank" style="color: #F1B82D;font-weight: 500;">Click Here</a> to understand maven dependancy with groupId,artifactId,version
+
+                <br/>E.g. <b><i>com.googlecode.json-simple==json-simple==1.1,org.unitils==unitils-core==3.4.6</i> </b>
+            </li>
+        </ul>
+        <textarea ng-model="rec.reqDependency" class="form-control" id="reqDependency" placeholder="Numpy==1.16.5"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="desc">Add Default Services to Configure ML PipeLine</label>
+        <br/>
+
+        <input type="checkbox" ng-model="req.dataCollection" value="true" onclick="javascript:showStep('data_collection')" /> &nbsp;Data Collection
+        <br/>
+
+        <div id="data_collection" style="display: none;">
+            <span class="list-group-item lab_step_name list-group-item-success ">Configure Data Collection</span>
+
+            <div class="lab-step-details" style="padding: 25px;border: 1px solid #ddd;">
+
+                <div class="form-group">
+                    <label for="desc">Process Description</label>
+                    <textarea ng-model="procDataCollection.processDetails" class="form-control" id="appDes"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="desc">Is execution of this process is mandatory</label>
+                    <select ng-model="procDataCollection.mandatory" class="form-control" id="langImpl">
+                        <option value="">--Select--</option>
+                        <option value="Y"> Yes </option>
+                        <option value="N"> No </option>
+                    </select>
+                </div>
+
+                <label for="name">Select Parameters for Data Collection </label>
+
+                <div id="build-wrap-data-collection" class="rec-payload"></div>                
+                <input ng-model="procDataCollection.inputParamater" type="hidden" id="json-requestPayload-data-collection" />
+
+            </div>
+        </div>
+
+        <br/>
+
+        <input type="checkbox" ng-model="req.dataProcessing" value="true" onclick="javascript:showStep('data_process')" /> &nbsp;Data Processing
+        <br/>
+        <div id="data_process" style="display: none;">
+            <span class="list-group-item lab_step_name list-group-item-success ">Configure Data Processing</span>
+            <div class="lab-step-details" style="padding: 25px;border: 1px solid #ddd;">
+
+                <div class="form-group">
+                    <label for="desc">Process Description</label>
+                    <textarea ng-model="procDataProcessing.processDetails" class="form-control" id="appDes"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="desc">Is execution of this process is mandatory</label>
+                    <select ng-model="procDataProcessing.mandatory" class="form-control" id="langImpl">
+                        <option value="">--Select--</option>
+                        <option value="Y"> Yes </option>
+                        <option value="N"> No </option>
+                    </select>
+                </div>
+                <label for="name">Select Parameters for Data Processing</label>
+
+                <div id="build-wrap-data-process" class="rec-payload"></div>
+                
+                <input ng-model="procDataProcessing.inputParamater" type="hidden" id="json-requestPayload-data-process" />
+
+            </div>
+        </div>
+        <br/>
+
+        <input type="checkbox" ng-model="req.trainModel" value="true" onclick="javascript:showStep('train_model')" /> &nbsp;Train Model
+        <br/>
+        <div id="train_model" style="display: none;">
+            <span class="list-group-item lab_step_name list-group-item-success ">Configure Model Training</span>
+            <div class="lab-step-details" style="padding: 25px;border: 1px solid #ddd;" id="train_model">
+
+                <div class="form-group">
+                    <label for="desc">Process Description</label>
+                    <textarea ng-model="procTrainModel.processDetails" class="form-control" id="appDes"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="desc">Is execution of this process is mandatory</label>
+                    <select ng-model="procTrainModel.mandatory" class="form-control" id="langImpl">
+                        <option value="">--Select--</option>
+                        <option value="Y"> Yes </option>
+                        <option value="N"> No </option>
+                    </select>
+                </div>
+
+                <label for="name">Select Parameters for Data Processing</label>
+
+                <div id="build-wrap-data-training" class="rec-payload"></div>
+                <input ng-model="procTrainModel.inputParamater" type="hidden" id="json-requestPayload-data-training" />
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="alert alert-primary" role="alert" ng-if="statusSDK == 'WORKING'">
+    Please Wait... We are updating Algorithm details and preparing SDK for {{rec.appName}} using Implementation Language {{rec.langImpl}}
+</div>
+
+<div class="form-group" ng-if="statusSDK == 'DONE'">
+    Your Recommender SDK is ready, <a style="color: #F1B82D;font-weight: 500;" href="javascript:void(0)" ng-click="downloadSDK(rec.recId);">Click Here</a> to Download SDK.
+</div>
+
+<div class="form-group">
+    <button class="btn btn-primary " id="getJSON_req" ng-click="addRecommenderDetails(req.prepareSDK, req.dataCollection, req.dataProcessing, req.trainModel);">Register Recommender</button>
+</div>
+
+<script type="text/javascript">
+    jQuery(function($) {
+        var list = ['req', 'data-collection', 'data-process', 'data-training'];
+        
+        var fbInstances = {};
+
+        var init = function(i) {
+            if (i < list.length) {
+                var options = JSON.parse(JSON.stringify([])); // deep copy
+                $("#build-wrap-"+list[i]).formBuilder(options).promise.then(function(res) {
+					
+                    fbInstances[list[i]] = res;
+                    i++;
+                    init(i);
+                });
+            } else {
+                return;
+            }
+        };
+
+        init(0); // init by recursive 
+
+        document.getElementById('getJSON_req').addEventListener('click', function() {
+
+        	for(key in list){
+        		console.log(key);
+        		console.log(fbInstances[list[key]].actions.getData('json'));
+        		//input request paramter 
+        		document.getElementById('json-requestPayload-'+list[key]).value = fbInstances[list[key]].actions.getData('json');
+    	    	
+        	}
+
+        });
+    });
+</script>

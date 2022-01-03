@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Covid19-web
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: vekar
+Implementation-Vendor-Id: Covid19-web
+Build-Jdk: 1.8.0_251
+Implementation-URL: http://projects.spring.io/spring-boot/Covid19-web/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

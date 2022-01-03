@@ -1,0 +1,77 @@
+<div class="row " ng-controller='add-process'>
+    <div class=" col-md-12 title-header">
+        <h4 class="section-heading">Add New Process</h4>
+        <hr class="hr-line">
+    </div>
+ 	<div class="col-md-12 mb-12 mb-md-0  ">
+	
+	 <div class="form-group">
+	    <label for="name">Process Name</label>
+	    <input type="text" ng-model="proc.processName" class="form-control" id="appName">
+	  </div>
+	  <div class="form-group">
+	    <label for="desc">Process Description</label>
+	    <textarea ng-model="proc.processDetails"  class="form-control" id="appDes" ></textarea>
+	  </div>
+	  
+	  <div class="form-group">
+	    <label for="domainName">MicroService URL</label>
+	    <input type="text" ng-model="proc.apiUrl"  class="form-control" id="domainName">
+	  </div>
+	  
+	  <div class="form-group">
+	    <label for="name">Select Input Parameter for MicroService </label>
+	  </div>
+		<div id="build-wrap-req" class="rec-payload"></div>
+		
+		<input ng-model="proc.inputParamater" type="hidden" id="json_requestPayload" />
+		
+		<script type="text/javascript">
+		
+		jQuery(function($) {
+			var fbEditor_req = document.getElementById('build-wrap-req');
+			var formBuilder_req = $(fbEditor_req).formBuilder();
+			console.log(formBuilder_req);
+		
+			document.getElementById('getJSON_req').addEventListener('click', function() {
+		    	//alert(formBuilder_req.actions.getData('json'));
+		    	document.getElementById('json_requestPayload').value = formBuilder_req.actions.getData('json');
+			});
+			
+			/* document.getElementById('set_Data').addEventListener('click', function() {
+				var formData_ = '[{"type":"select","required":false,"label":"Select","className":"form-control","name":"select-1585809576483","access":false,"multiple":false,"values":[{"label":"Option 1","value":"option-1","selected":true},{"label":"Option 2","value":"option-2"},{"label":"Option 3","value":"option-3"}]}]';
+				var formData_json = JSON.parse(formData_);
+				formBuilder_req.actions.setData(formData_json);
+			}); */
+		});
+		
+		</script>
+		<div class="setDataWrap">
+			<button id="getJSON_req" class="btn btn-primary"  ng-click="saveProcess()" type="button">Add Process Details</button>
+			<!-- button id="set_Data"   type="button">Load</button> -->
+		
+		</div>
+		
+	
+			
+        
+    </div>
+</div>
+
+<style>
+.table thead tr th{
+	text-align: center;
+} 
+.table tbody td {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+.table thead th {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+   /*  .table tbody td {
+        border: 1px solid #ddd;
+    } */
+</style>

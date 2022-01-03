@@ -1,0 +1,72 @@
+<div ng-controller="chain-rec-controller">
+ <h4 class="section-heading">Chain Recommender Systems </h4>
+ <hr class="hr-line">
+ 
+  <p>Give Details for your Chain Recommender Apps</p>
+ 
+ 
+   <div class="form-group">
+    <label for="name">Recommender Name</label>
+    <input type="text" ng-model="chainApp.appName" class="form-control" id="appName">
+  </div>
+  <div class="form-group">
+    <label for="desc">Recommender Description:</label>
+    <textarea ng-model="chainApp.appDetails"  class="form-control" id="appDes" ></textarea>
+  </div>
+
+ <p>Select Recommenders and provide asked Details to chain multiple Recommenders to build Knowledge Interface to Provide Better Knowledge Discovery</p>
+
+<div class="card">
+	<div class="card-header">
+
+		<h4>Add Chain</h4>	
+	</div>
+	<div class="card-body">
+  <div class="form-group">
+    <label for="desc">Select Recommender 1 that you want to chain</label>
+    <select ng-model="chainAppDetails.rec1Id" class="form-control" id="app1">
+    	<option  ng-repeat="recmend in recList" value="{{recmend.recId}}" > {{recmend.appName}} </option>
+	</select>
+	  
+  </div>
+  
+  	
+  <div class="form-group">
+    <label for="desc">Select Recommender 2 that you want to chain</label>
+    <select ng-model="chainAppDetails.rec2Id" class="form-control" id="app1">
+    	<option ng-repeat="recmend in recList"  value="{{recmend.recId}}" > {{recmend.appName}} </option>
+	</select>
+  </div>
+  
+  <div class="form-group" >
+  	<button class="btn btn-primary "  id="objectName" ng-click="validateRecommender();" >Check Validity</button>
+  </div>
+  
+   <div class="alert alert-primary" role="alert" ng-if="statusSDK == 'WORKING'">
+		Please Wait...  We are checking for Practicality of selected recommenders to be chained. 
+   </div>  
+  <div ng-if="chainValidate == 'true'">
+   <div class="form-group">
+    <label for="desc">Select Output Parameter from Recommend 1 ({{rec1.appName}}) to Chain Recommender</label>
+    <select ng-model="chainAppDetails.inputParam"  class="form-control" id="app1">
+    	<option value="{{inputParam}}" ng-repeat="inputParam in inputParams"> {{inputParam}} </option>
+	</select>
+  </div>
+	
+  <div class="form-group">
+    <label for="desc">Select Input Parameter from Recommend 2 ({{rec2.appName}}) to Chain Recommender</label>
+    <select ng-model="chainAppDetails.outputParam"  class="form-control" id="app1">
+    	<option value="{{outputParam.name}}" ng-repeat="outputParam in outputParams"> {{outputParam.name}} </option>
+	</select>
+  </div>
+ 
+ 
+  </div>
+  </div> 
+  
+  </div>
+  <br/>
+  <div class="form-group" >
+  	<button class="btn btn-primary "  id="objectName" ng-click="chainApps();" >Chain App</button>
+  </div>
+  </div>

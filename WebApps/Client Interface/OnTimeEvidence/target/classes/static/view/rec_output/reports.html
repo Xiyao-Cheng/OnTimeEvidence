@@ -1,0 +1,30 @@
+<div class="w3-panel w3-card" ng-controller="reports-controller">
+	<div class="row ">
+		<div ng-controller="menuController" class="col-12 col-md-12">
+			<h1 style="text-transform:none; text-align: center;">Data Reports</h1>
+			<p style="text-transform:none; text-align: center;">We have some ranked data reports about genes and drugs for you.
+			</p>
+		</div>
+		<br/>
+		<div class="col12 col-md-12" ng-controller="menuController">
+			<ul class="nav nav-pills mb-3 justify-content-center">
+				<li class="nav-item active" ><a class="nav-link" ui-sref=".gene" ui-sref-active="active">Gene</a></li><br/>
+				<li class="nav-item"><a class="nav-link" ui-sref=".drug" ui-sref-active="active">Drug</a></li>
+			</ul>	
+		</div>
+		<div ui-view/></div>
+	</div>
+</div>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  width: auto !important;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+</style>

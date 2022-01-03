@@ -1,0 +1,51 @@
+<div ng-controller="algorithm-controller">
+ <h4 class="section-heading">Algorithm Details </h4>
+ <hr class="hr-line">
+ 
+ <p>Add Algorithm Details for <b>{{rec.appName}}</b> to Download SDK for Recommender</p>
+  <div class="form-group">
+    <label for="typeAlgo">Type of Algorithm <br/> (Add algorithm comma separated as shown below)
+    <br/> <i>Algorithm 1, Algorithm 2</i></label>
+    <input type="text" ng-model="rec.typeAlgo" class="form-control" id="typeAlgo" placeholder="Algorithm 1, Algorithm 2" />
+  </div>
+  <div class="form-group">
+    <label for="typeAlgo">Describe Algorithm</label>
+    <textarea ng-model="rec.detailAlgorithm" class="form-control" id="detailAlgorithm" placeholder="Tell Us more about your algorithm" ></textarea>
+  </div>
+  <div class="form-group">
+    <label for="desc">Implementation Language</label>
+    <select ng-model="rec.langImpl" class="form-control" id="langImpl">
+    	<option value="" >--Select--</option>
+    	<option value="python" > Python </option>
+    	<option value="java" > Java </option>	
+	</select>
+  
+  </div>
+  
+  <div class="form-group">
+    <label for="typeAlgo">Prerequisites or Required Dependency <br/> (Add Dependency or Prerequisites comma separated with version as shown below)</label>
+    <ul>
+    	<li>If you have selected <b>Python</b>  as your Implementation Language, specify library, version number separated by ==. <br/>E.g. <b><i>Numpy==1.16.5,tqdm==4.35.0</i></b></li>
+    	<li>
+    		If you have selected <b>JAVA</b> as your Implementation Language, specify maven groupId,artifactId,version separated by ==. <a href="https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple/1.1" target="_blank" style="color: #F1B82D;font-weight: 500;">Click Here</a> to understand maven dependancy with groupId,artifactId,version
+    		
+    		<br/>E.g. <b><i>com.googlecode.json-simple==json-simple==1.1,org.unitils==unitils-core==3.4.6</i> </b>
+    	</li>
+    </ul>
+    <textarea ng-model="rec.reqDependency" class="form-control" id="reqDependency" placeholder="Numpy==1.16.5" ></textarea>
+  </div>
+ 
+  <div class="form-group" ng-if="statusSDK == ''">
+  	<button class="btn btn-primary "  id="objectName" ng-click="prepareSDK();" >Save Algorithm Details</button>
+  </div>
+  
+	<div class="alert alert-primary" role="alert" ng-if="statusSDK == 'WORKING'">
+		Please Wait...  We are adding details and preparing SDK for {{rec.appName}} using Implementation Language {{rec.langImpl}}
+	</div>  
+	
+ 	<div class="form-group" ng-if="statusSDK == 'DONE'">
+		Your Recommender SDK is ready, <a style="color: #F1B82D;font-weight: 500;" href="javascript:void(0)" ng-click="downloadSDK(rec.recId);" >Click Here</a> to Download SDK.
+	</div>
+  
+  
+  </div>
