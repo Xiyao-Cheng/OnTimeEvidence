@@ -1,4 +1,4 @@
-# OnTimeRecommend
+# OnTimeEvidence
 
 ## Tools, software used in system
 - JAVA 8: Backend development language
@@ -91,6 +91,18 @@
 4.	KBCommons – Web : http://localhost:9222/KBCommons-Web/#!/
 
 ## Development Environment
+
+### Git repo details
+* OnTimeEvidence (all java project) 
+  * Microservices folder (all implemented microservices) 
+  * Webapps (all implemented front end application)
+  * Recommender-Source-Code (recommender source code Jyupter notebook)
+  * Database_backup (Database backup for OnTimeRecommend and knowledge base for publication recommender and scholar recommender.)
+  * DSTM
+  * Covid-19 topic-model
+
+
+
 
 
 
