@@ -112,7 +112,14 @@
     b.	Select “Root Directory” (your git repo folder)
     c.	Select Project and click on Finish
 
-
+### Run Project
+1. Right Click on Project -> Run As -> Spring Boot App
+2. First Run all microservices
+    i. Run eureka-service-registroy-admin
+    ii. Run zuul-edge-server-admin
+    iii. Run Other services
+    iv. Hit http://<ip-address>/8761/
+3. Run All web projects
 
 
 
