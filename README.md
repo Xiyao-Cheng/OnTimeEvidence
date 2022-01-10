@@ -101,6 +101,20 @@
   * DSTM
   * Covid-19 topic-model
 
+* Database and Knowledgebase details
+* Set Up Workspace
+  1.	Download and install Eclipse: https://www.eclipse.org/downloads/
+  2.	Apache Maven set up: https://www.toolsqa.com/java/maven/how-to-install-maven-eclipse-ide/
+  3.	Spring Boot Set Up :  https://www.eclipse.org/community/eclipse_newsletter/2018/february/springboot.php
+  4.	Checkout repo
+  5.	Import projects from in workspace (eclipse)
+    a.	 File -> import -> Existing Maven Project
+    b.	Select “Root Directory” (your git repo folder)
+    c.	Select Project and click on Finish
+
+
+
+
 
 
 
